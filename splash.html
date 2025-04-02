@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>🌀 Mandala CÓDEX KOBLLUX</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle, #050c1f, #000);
+      font-family: 'Segoe UI', sans-serif;
+      color: #e0faff;
+      overflow: hidden;
+    }
+
+    .container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .espiral {
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 100px; height: 100px;
+      background: radial-gradient(#00faff, transparent);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      animation: spin 20s linear infinite;
+      box-shadow: 0 0 20px #00faffaa;
+      z-index: 10;
+    }
+
+    @keyframes spin {
+      0% { transform: translate(-50%, -50%) rotate(0deg); }
+      100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    .zona {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid #00faff33;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .zona:hover {
+      background: #00faff44;
+      box-shadow: 0 0 10px #00faff;
+    }
+
+    .ritual-btn {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #00faff;
+      color: #000;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .ritual-btn:hover {
+      background: #33ffff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="espiral" onclick="registrarPulso()"></div>
+
+    <!-- 12 zonas arquetípicas ao redor -->
+    <script>
+      const centerX = window.innerWidth / 2;
+      const centerY = window.innerHeight / 2;
+      const radius = 150;
+      for (let i = 0; i < 12; i++) {
+        const angle = (i * 30 - 90) * (Math.PI / 180);
+        const x = centerX + radius * Math.cos(angle);
+        const y = centerY + radius * Math.sin(angle);
+        document.write(`<div class='zona' style='top:${y - 30}px;left:${x - 30}px;' onclick='mostrarZona(${i + 1})'></div>`);
+      }
+    </script>
+
+    
+  </div>
+
+  <script>
+    function registrarPulso() {
+      const now = new Date();
+      const hora = now.getHours().toString().padStart(2, '0');
+      const minuto = now.getMinutes().toString().padStart(2, '0');
+      const segundo = now.getSeconds().toString().padStart(2, '0');
+      alert(`🕰️ Pulso registrado: ${hora}:${minuto}:${segundo}`);
+    }
+
+    const frases = ['Zona 1 • Origem: O que pulsa em ti é o que pulsa no mundo.', 'Zona 2 • Intenção: A intenção clara move as camadas ocultas.', 'Zona 3 • Movimento: Teu gesto cria direção.', 'Zona 4 • Alinhamento: Quando o silêncio ecoa, tudo se reorganiza.', 'Zona 5 • Chave: O que você procura... já está em tua mão.', 'Zona 6 • Frequência: Você é o som antes da nota.', 'Zona 7 • Visão: Cada forma que você vê... é você vendo a si.', 'Zona 8 • Mutação: Tudo que muda te revela.', 'Zona 9 • Síntese: Quando tudo se junta, algo maior se forma.', 'Zona 10 • Verdade: O que é simples é sagrado.', 'Zona 11 • Pulso: O tempo é o ritmo da tua respiração.', 'Zona 12 • Integração: Você é o centro da mandala.'];
+    function mostrarZona(num) {
+      alert(`🔮 ${frases[num - 1]}`);
+    }
+
+    // função desativada
+    function ativarRitual() {
+      alert("💫 Ritual ativado. O CÓDEX começa a responder.");
+    }
+  </script>
+
+<script>
+function iniciarMetaLux() {
+  const audio = new Audio("https://upload.wikimedia.org/wikipedia/commons/0/08/Thunder.ogg");
+  audio.play();
+  document.body.style.transition = "opacity 1s ease";
+  document.body.style.opacity = 0;
+  setTimeout(() => {
+    window.location.href = "MetaLux_UI_FINAL_CORRIGIDO_OK.html";
+  }, 1200);
+}
+
+document.querySelector('.circulo')?.addEventListener('click', iniciarMetaLux);
+</script>
+</body>
+
+</html>
